@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <title>Quiz</title>
+  <script src="socket.io.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="#" class="logo">Yaaa.</a>
+    <nav class="navbar">
+      <a href="index.html" style="--i:1" id="homelink">Home</a>
+      <a href="introduction.html" style="--i:2" id="introduction-link">Introduction</a>
+      <a href="about.html" style="--i:3" id="about-link">About</a>
+      <a href="quiz.html" style="--i:4" id="quiz-link">Quiz</a>
+    </nav>
+  </header>
+
+  <section class="quiz">
+    <div class="quiz-box">
+      <h1>Welcome to Quiz!</h1>
+      <label for="username">Give your name:</label>
+      <input type="text" id="username" name="username" required>
+      <button id="start-btn">Start</button>
+    </div>
+
+    <div class="question-box" style="display: none;">
+      <h2 id="question-title">Question 1:</h2>
+      <p id="question-text"></p>
+      <div class="options">
+        <button class="option" data-value="a">A</button>
+        <button class="option" data-value="b">B</button>
+        <button class="option" data-value="c">C</button>
+        <button class="option" data-value="d">D</button>
+      </div>
+      <p id="timer">Time to answer: <span id="time-left">15</span> seconds</p>
+      <button id="submit-btn">Submit</button>
+    </div>
+  </section>
+  <div id="leaderboard-body">
+    <h2>Leaderboard</h2>
+    <table id="leaderboard-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Score</th>
+                <th>Time (seconds)</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard-body">
+            <!-- 排行榜数据将动态插入到这里 -->
+        </tbody>
+    </table>
+
+  </div>
+  <!-- 提示框 -->
+  <div id="result-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span id="result-text"></span>
+      <button id="next-btn">Next Question</button>
+    </div>
+  </div>
+  
+
+</body>
+</html>
+
